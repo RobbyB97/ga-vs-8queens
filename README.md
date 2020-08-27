@@ -8,7 +8,7 @@ The goal of this project is to create a [Genetic Algorithm *(GA)*](https://towar
 ---
 
 # Design
-## 8 Queens Environment
+## 8 Queens Environment (./chessboard)
 The 8 queens environment which the algorithms are using consist of 3 different objects. A *board*, *square* and *queen*.
 
 -   ### Board
@@ -23,9 +23,15 @@ The 8 queens environment which the algorithms are using consist of 3 different o
 
 -   ### Square
     -   Data:
-        -   __queen__: The queen object that may or may not  in any given square.
-        -   __sumCapture__: The sum of queens that are able to capture a piece on this square.\
+        -   __queen__: The queen object that may or may not be in any given square.
+        -   __sum__: The sum of queens that are able to capture a piece on this square.
         -   __row__: Which row of the board the square is placed in.
         -   __col__: Which column of the board the square is placed in.
     -   Functions:
-        -   __place__:
+        -   __place__: Add a queen to the square instance.
+        -   __canCapture__: increments the sum variable of the square instance.
+
+-   ### Queen
+    -   Data:
+        -   __row__: The row of the Square the Queen is occupying
+        -   __col__: The column of the Square the Queen is occupying
