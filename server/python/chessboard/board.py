@@ -22,20 +22,72 @@ class Board:
                 row.append(Square(row=row, col=col))
             self.board.append(row)
 
-
     def place(self, row, col):
         # Place Queen
+        log.debug('Placing Queen at {}, {}'.format(row, col))
         self.board[row][col].place()
 
-        # TODO: Find North/South capturable squares
-        
-        # TODO: Find East/West capturable squares
+        # Find North/South capturable squares
+        for i in range(8):
+            if i is not row:
+                log.debug('Queen [{}, {}] can capture [{}, {}]'.format(row, col, i, col))
+                self.board[i][col].canCapture()
 
-        # TODO: Find NE capturable squares
+        # Find East/West capturable squares
+        for i in range(8):
+            if i is not col:
+                log.debug('Queen [{}, {}] can capture [{}, {}]'.format(row, col, row, i))
+                self.board[row][i].canCapture()
 
-        # TODO: Find NW capturable squares
+        # Find NE capturable squares
+        for i in range(1, 8):
+            newRow = row + i
+            newCol = col + i
 
-        # TODO: Find SE capturable squares
+            if (newRow < 8) and (newCol < 8):
+                log.debug('Queen [{}, {}] can capture [{}, {}]'.format(row, col, newRow, newCol))
+                self.board[newRow][newCol].canCapture()
 
-        # TODO: Find SW capturable squares
+            else:
+                log.debug('[{}, {}] Goes off the board.'.format(newRow, newCol))
+                break
+
+        # Find NW capturable squares
+        for i in range(1, 8):
+            newRow = row + i
+            newCol = col - i
+
+            if (newRow < 8) and (newCol >= 0):
+                log.debug('Queen [{}, {}] can capture [{}, {}]'.format(row, col, newRow, newCol))
+                self.board[newRow][newCol].canCapture()
+
+            else:
+                log.debug('[{}, {}] Goes off the board.'.format(newRow, newCol))
+                break
+
+        # Find SE capturable squares
+        for i in range(1, 8):
+            newRow = row - i
+            newCol = col + i
+
+            if (newRow >= 0) and (newCol < 8):
+                log.debug('Queen [{}, {}] can capture [{}, {}]'.format(row, col, newRow, newCol))
+                self.board[newRow][newCol].canCapture()
+
+            else:
+                log.debug('[{}, {}] Goes off the board.'.format(newRow, newCol))
+                break
+
+        # Find SW capturable squares
+        for i in range(1, 8):
+            newRow = row - i
+            newCol = col - i
+
+            if (newRow >= 0) and (newCol >= 0):
+                log.debug('Queen [{}, {}] can capture [{}, {}]'.format(row, col, newRow, newCol))
+                self.board[newRow][newCol].canCapture()
+
+            else:
+                log.debug('[{}, {}] Goes off the board.'.format(newRow, newCol))
+                break
         return
