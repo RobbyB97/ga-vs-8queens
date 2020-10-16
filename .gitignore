@@ -1,0 +1,6 @@
+#Ignore python build files
+venv/
+*.pyc
+
+# Ignore logs
+*.log
