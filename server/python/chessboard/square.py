@@ -24,6 +24,7 @@ class Square:
 
     
     def place(self):
+        log.debug('Placing Queen')
         self.queen = Queen(row=self.row, col=self.col)
         return
 
