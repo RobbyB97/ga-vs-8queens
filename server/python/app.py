@@ -11,7 +11,7 @@ from chessboard.board import Board
 # Set logger
 log = logging.getLogger('GA_Project')
 log.setLevel(logging.INFO)
-handlerpath = os.path.dirname(os.path.realpath(__file__)) + '/logs/app.log'
+handlerpath = os.path.dirname(os.path.realpath(__file__)) + '/app.log'
 handler = logging.FileHandler(handlerpath)
 handler.setLevel(logging.DEBUG)
 consoleHandler = logging.StreamHandler()
@@ -24,6 +24,9 @@ log.addHandler(handler)
 
 
 if __name__ == "__main__":
+    x = Board()
+    x.place(6,6)
+    
     # TODO: Run random agent
 
     # TODO: Record random agent results
@@ -31,4 +34,4 @@ if __name__ == "__main__":
     # TODO: Run genetic algorithm
     
     # TODO: Record genetic algorithm results
-    return
+    #return

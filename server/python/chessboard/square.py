@@ -18,6 +18,10 @@ class Square:
         self.queen = False
         return
 
+
+    def getSum(self):
+        return self.sum
+
     
     def place(self):
         self.queen = Queen(row=self.row, col=self.col)

@@ -11,10 +11,11 @@ log = logging.getLogger('GA_Project')
 
 
 class Board:
+
     def __init__(self):
         # Create the chess board
-        self.board = []
-        self.sum = 0
+        self.board = [] # 2d matrix of square objects
+        self.queens = [] # Coordinates of squares with queens
 
         for row in range(8):
             row = []
@@ -22,10 +23,39 @@ class Board:
                 row.append(Square(row=row, col=col))
             self.board.append(row)
 
+
+    def __len__(self):
+        # Returns number of Queens placed
+        return len(self.queens)
+
+
+    def isFull(self):
+        # Are 8 Queens on the board?
+        return len(self.queens) == 8
+
+
+    def sum(self):
+        # Returns number of capturable squares
+        captures = 0
+        for queen in self.queens:
+            captures += self.board[queen[0]][queen[1]].getSum()
+
+        return captures
+
+
+
+
     def place(self, row, col):
+        # Check if valid coordinates
+        if (row < 0 or row > 7) or (col < 0 or col > 7):
+            log.error('Can\'t place Queen off the board.\n \
+                [{}, {}] are not valid coordinates'.format(row, col))
+            return False
+
         # Place Queen
         log.debug('Placing Queen at {}, {}'.format(row, col))
         self.board[row][col].place()
+        self.queens.append([row, col])
 
         # Find North/South capturable squares
         for i in range(8):
