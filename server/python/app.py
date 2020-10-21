@@ -7,6 +7,8 @@ import logging
 import os
 
 from chessboard.board import Board
+from RA.ra import RA
+from GA_v1.ga import GA
 
 # Set logger
 log = logging.getLogger('GA_Project')
@@ -22,12 +24,47 @@ log.addHandler(consoleHandler)
 log.addHandler(handler)
 
 
+def geneticAlgorithm():
+    """ Runs genetic algorithm """
+    # Config
+    populationSize = 20
+    ga = GA()
+
+    # Generate initial population
+    ga.generate(populationSize)
+    ga.execute()
+
+    #GA loop
+    while not ga.solved:
+        bestGenes = ga.select()
+        ga.clear()
+        ga.add(bestGenes)
+        ga.generate(int(populationSize / 2))
+        log.info(len(ga))
+
+    
+    """ This is how I want the selection and splicing loop to interface
+    bestGenes = ga.select()
+    bestGenes = ga.splice(bestGenes)
+    ga.clear()
+    ga.add(bestGenes)
+    ga.generate(int(populationSize / 2))
+    """
+    return
+
+
+def randomAgent():
+    """
+        Runs random agent
+    """
+    ra = RA()
+    while ra.solved == False:
+        ra.solve()
+
 
 if __name__ == "__main__":
-    x = Board()
-    x.place(6,6)
-    
     # TODO: Run random agent
+    geneticAlgorithm()
 
     # TODO: Record random agent results
     

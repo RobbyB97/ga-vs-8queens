@@ -1,8 +1,0 @@
-# Ignore virtual environment
-/venv/
-
-# Ignore pycache
-*.pyc
-
-# Ignore logs
-*.log
