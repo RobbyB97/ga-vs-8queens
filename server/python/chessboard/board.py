@@ -39,7 +39,7 @@ class Board:
 
     def isFull(self):
         """ Are 8 Queens on the board? """
-        return len(self.queens) == 8
+        return len(self) == 8
 
 
     def place(self, row, col):

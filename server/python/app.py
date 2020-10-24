@@ -5,6 +5,7 @@
 
 import logging
 import os
+from time import sleep
 
 from chessboard.board import Board
 from RA.ra import RA
@@ -31,16 +32,43 @@ def geneticAlgorithm():
     ga = GA()
 
     # Generate initial population
-    ga.generate(populationSize)
+    log.debug('Generating initial population.')
+    for i in range(populationSize):
+        ga.generate()
+    
+    log.debug('Executing genomes in population')
     ga.execute()
 
+    log.debug('Printing sums of population')
+    for genome in ga.population:
+        log.debug(genome['sum'])
+
     #GA loop
+    # TODO: The logic of what to do when goal state is achieved needs to be ironed out
     while not ga.solved:
+        bestGenes = []
+        splicedGenes = []
+
+        # Selection
         bestGenes = ga.select()
+        log.debug('Here are the best genes: {}'.format(bestGenes))
         ga.clear()
-        ga.add(bestGenes)
-        ga.generate(int(populationSize / 2))
-        log.info(len(ga))
+
+        # TODO: Recombination
+        splicedGenes = ga.splice(bestGenes)
+        for chromosome in splicedGenes:
+            ga.add(chromosome)
+        
+        # Replenish population
+        log.debug('Replenishing population')
+        for i in range(int(populationSize / 2)):
+            log.debug('Generating new genome')
+            ga.generate()
+
+        # TODO: Execution (place Queens on board)
+        ga.execute()
+        ga.getFittestStats()
+        sleep(1)
 
     
     """ This is how I want the selection and splicing loop to interface
