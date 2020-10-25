@@ -141,18 +141,45 @@ class GA:
 
         # Splicing algorithm
         while len(population) > 1:
+            old_geneOne = population.pop(0)
+            old_geneTwo = population.pop(0)
             geneOne['board'] = Board()
             geneTwo['board'] = Board()
-            geneOne['genome'] = population.pop(0)['genome']
-            geneTwo['genome'] = population.pop(0)['genome']
+            geneOne['genome'] = old_geneOne['genome']
+            geneTwo['genome'] = old_geneTwo['genome']
 
             for allele in range(len(geneOne)):
+                # Check the coordinates of the allele
+                # If neither queen can capture another piece: 25% chance of splice (1 in 4)
+                # If one of the queens can capture another piece: 50% chance of splice (2 in 4)
+                # If both queens can capture another piece: 75% chance of splice (3 in 4)
+
+                # Calculate chance of splice
+                odds_of_splice = 8
+                
+                # Check if Queens can capture other piece
+                geneOne_canCapture = True
+                geneTwo_canCapture = True
+                geneOne_coords = geneOne['genome'][allele]
+                geneTwo_coords = geneTwo['genome'][allele]
+                
+                if (old_geneOne['board'].canCapture(geneOne_coords) and old_geneTwo['board'].canCapture(geneTwo_coords)):
+                    log.debug('Both queens can capture')
+                    odds_of_splice -= 5
+                
+                elif (old_geneOne['board'].canCapture(geneOne_coords) or old_geneTwo['board'].canCapture(geneTwo_coords)):
+                    log.debug('One queen can capture')
+                    odds_of_splice -= 4
+
                 # Coin toss
-                coin = randint(0, 1)
-                if coin:
+                coin = randint(1, odds_of_splice)
+                if coin < 3:
+                    log.debug('Gene spliced')
                     temp = geneOne['genome'][allele]
                     geneOne['genome'][allele] = geneTwo['genome'][allele]
                     geneTwo['genome'][allele] = temp  
+                else:
+                    log.debug('Gene not spliced.')
 
             splicedPopulation.append(geneOne)
             splicedPopulation.append(geneTwo)
@@ -196,6 +223,8 @@ class GA:
         for chromosome in fittestPopulation:
             fittestSums.append(chromosome['sum'])
 
+        # FIXME: sum(fittestSums) used in the log.info below returns null
+
         log.info(fittestSums)
         log.info('Total conflicts of fittest population:'.format(sum(fittestSums)))
         return
@@ -205,7 +234,6 @@ class GA:
         """
             This function is called when the goal state is achieved
         """
-        # TODO: Figure out what to do.
         
         self.solved = True  # The last thing to run before return
         return
