@@ -17,6 +17,7 @@ class GA:
         self.solutions = 0 # Number of solutions attempted
         self.solved = False # Was 8 Queens problems solved?
         self.population = [] # List of genome dictionaries.
+        self.goalState = None # Genome object that has achieved goalState
 
 
     def __len__(self):
@@ -205,7 +206,33 @@ class GA:
             This function is called when the goal state is achieved
         """
         # TODO: Figure out what to do.
-        # Maybe record ga's stats to a csv, JSON object or mongodb cluster
         
         self.solved = True  # The last thing to run before return
+        return
+
+
+    def storeResults(self):
+        """ Stores results of GA in MongoDB """
+        
+        # Connect to db
+        try:
+            client = MongoClient()
+            db = client.ga_db
+            ga_db = db.ga_v1
+        except:
+            log.error('Could not connect to MongoDB.')
+            return
+
+        # Gather results
+        results = {
+            "attempts": int(self.solutions),
+            "queens": self.goalState['genome']
+        }
+
+        # Post
+        try:
+            ga_db.insert_one(results)
+            log.debug('Posted results to MongoDB.')
+        except:
+            log.error('Could not post results to MongoDB.')
         return
