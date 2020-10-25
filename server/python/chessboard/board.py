@@ -37,6 +37,12 @@ class Board:
 
         return int(captures / 2)
 
+
+    def getQueens(self):
+        """ Returns coordinates of Queens """
+        return self.queens
+
+
     def isFull(self):
         """ Are 8 Queens on the board? """
         return len(self) == 8
