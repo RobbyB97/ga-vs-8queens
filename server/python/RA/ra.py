@@ -38,10 +38,19 @@ class RA:
         # Test fitness
         if self.board.getSum == 0:
             log.debug('Random agent solved 8 Queens problem in {} attempts'.format(self.solutions))
-            self.solved = True
+            self.solved()
 
         else:
             log.debug('Random agent generated solution with {} conflicts'.format(self.board.getSum()))
+        return
+
+
+    def solved(self):
+        """ 
+            This function is called when the goal state is achieved 
+        """
+
+        self.solved = True  # The last thing to run before return
         return
 
 
