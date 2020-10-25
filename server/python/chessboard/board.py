@@ -22,15 +22,18 @@ class Board:
             for col in range(8):
                 row.append(Square(row=row, col=col))
             self.board.append(row)
+        return
 
 
     def __len__(self):
         """ Returns number of Queens placed """
+
         return len(self.queens)
 
 
     def getSum(self):
         """ Returns number of capturable squares """
+
         captures = 0
         for queen in self.queens:
             captures += self.board[queen[0]][queen[1]].getSum()
@@ -38,18 +41,27 @@ class Board:
         return captures
 
 
+    def canCapture(self, coords: list):
+        """ Returns sum of square at given coordinates """
+        
+        return self.board[coords[0]][coords[1]].getSum()
+
+
     def getQueens(self):
         """ Returns coordinates of Queens """
+
         return self.queens
 
 
     def isFull(self):
         """ Are 8 Queens on the board? """
+
         return len(self) == 8
 
 
     def place(self, row, col):
         """ Place Queen on board """
+
         # Check if valid coordinates
         if (row < 0 or row > 7) or (col < 0 or col > 7):
             log.error('Can\'t place Queen off the board.\n \
