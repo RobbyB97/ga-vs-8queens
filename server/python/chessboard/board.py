@@ -35,7 +35,7 @@ class Board:
         for queen in self.queens:
             captures += self.board[queen[0]][queen[1]].getSum()
 
-        return int(captures / 2)
+        return captures
 
 
     def getQueens(self):
