@@ -4,3 +4,6 @@ venv/
 
 # Ignore logs
 *.log
+
+# Ignore database
+server/data/
