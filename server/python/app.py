@@ -65,9 +65,8 @@ def geneticAlgorithm():
             log.debug('Generating new genome')
             ga.generate()
 
-        # TODO: Execution (place Queens on board)
+        # Execute new genomes
         ga.execute()
-        ga.getFittestStats()
         sleep(1)
 
     
