@@ -1,0 +1,22 @@
+{
+  "name": "ga-vs-8queens",
+  "version": "1.0.0",
+  "description": "Optimizing GA to solve 8 Queens in as few boards as possible",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobbyB97/ga-vs-8queens.git"
+  },
+  "author": "Robby Bergers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobbyB97/ga-vs-8queens/issues"
+  },
+  "homepage": "https://github.com/RobbyB97/ga-vs-8queens#readme",
+  "dependencies": {
+    "mongoose": "^5.10.11"
+  }
+}

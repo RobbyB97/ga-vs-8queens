@@ -1,9 +1,8 @@
+node_modules/
+
 #Ignore python build files
 venv/
 *.pyc
 
 # Ignore logs
 *.log
-
-# Ignore database
-server/data/
