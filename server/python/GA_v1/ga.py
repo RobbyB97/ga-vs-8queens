@@ -14,10 +14,11 @@ log = logging.getLogger('GA_Project')
 class GA:
 
     def __init__(self):
-        self.solutions = 0 # Number of solutions attempted
-        self.solved = False # Was 8 Queens problems solved?
-        self.population = [] # List of genome dictionaries.
-        self.goalState = None # Genome object that has achieved goalState
+        self.solutions = 0      # Number of solutions attempted
+        self.generation = 0    # Number of generations passed
+        self.solved = False     # Was 8 Queens problems solved?
+        self.population = []    # List of genome dictionaries.
+        self.goalState = None   # Genome object that has achieved goalState
 
 
     def __len__(self):
@@ -195,6 +196,12 @@ class GA:
         return
 
 
+    def nextGeneration(self):
+        """ Increments generation """
+        self.generation += 1
+        return
+
+
     def getPopulationStats(self):
         """
             Logs the statistics of the current population of genomes.
@@ -246,20 +253,20 @@ class GA:
         try:
             client = MongoClient()
             db = client.ga_db
-            ga_db = db.ga_v1
         except:
             log.error('Could not connect to MongoDB.')
             return
 
         # Gather results
         results = {
-            "attempts": int(self.solutions),
-            "queens": self.goalState['genome']
+            "solutions": int(self.solutions),
+            "genome": self.goalState['genome'],
+            "generation": self.generation
         }
 
         # Post
         try:
-            ga_db.insert_one(results)
+            db['ga1'].insert_one(results)
             log.debug('Posted results to MongoDB.')
         except:
             log.error('Could not post results to MongoDB.')

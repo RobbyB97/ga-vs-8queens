@@ -6,6 +6,7 @@
 import logging
 import os
 from time import sleep
+from pymongo import MongoClient
 
 from chessboard.board import Board
 from RA.ra import RA
@@ -25,8 +26,8 @@ log.addHandler(consoleHandler)
 log.addHandler(handler)
 
 
-def geneticAlgorithm():
-    """ Runs genetic algorithm """
+def geneticAlgorithm1():
+    """ Runs genetic algorithm (version 1) """
     # Config
     populationSize = 20
     ga = GA()
@@ -46,6 +47,7 @@ def geneticAlgorithm():
     #GA loop
     # TODO: The logic of what to do when goal state is achieved needs to be ironed out
     while not ga.solved:
+        ga.nextGeneration()
         bestGenes = []
         splicedGenes = []
 
@@ -68,34 +70,20 @@ def geneticAlgorithm():
         # Execute new genomes
         ga.execute()
         sleep(1)
-
-    
-    """ This is how I want the selection and splicing loop to interface
-    bestGenes = ga.select()
-    bestGenes = ga.splice(bestGenes)
-    ga.clear()
-    ga.add(bestGenes)
-    ga.generate(int(populationSize / 2))
-    """
     return
 
 
 def randomAgent():
-    """
-        Runs random agent
-    """
+    """ Runs random agent """
     ra = RA()
     while ra.solved == False:
         ra.solve()
+    return
 
 
 if __name__ == "__main__":
-    # TODO: Run random agent
-    geneticAlgorithm()
-
-    # TODO: Record random agent results
-    
-    # TODO: Run genetic algorithm
-    
-    # TODO: Record genetic algorithm results
-    #return
+    # Generate 10,000 solutions with the RA and GA
+    for i in range(10000):
+        randomAgent()
+        geneticAlgorithm1()
+    return

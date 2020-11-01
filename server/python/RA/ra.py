@@ -17,7 +17,7 @@ class RA:
         self.solutions = 0 # Number of solutions attempted
         self.solved = False # Was 8 Queens problem solved?
         self.board = None
-        self.storeResults()
+        self.genome = []    
         return
 
 
@@ -29,10 +29,13 @@ class RA:
 
         # Generate board
         self.board = Board()
+        self.genome = []    # Reset genome
         for i in range(8):
             col = randint(0, 7)
+            allele = [1, col]
             log.debug('Placing Queen at [{}, {}]'.format(i, col))
             self.board.place(i, col)
+            self.genome.append(allele)
         self.solutions += 1
         
         # Test fitness
@@ -49,7 +52,7 @@ class RA:
         """ 
             This function is called when the goal state is achieved 
         """
-
+        self.storeResults()
         self.solved = True  # The last thing to run before return
         return
 
@@ -60,22 +63,17 @@ class RA:
         # Connect to db
         try:
             client = MongoClient()
-            db = client.ga_db
-            ra_db = db.ra
+            db = client['ga_db']
+            
+            post = {
+                "solutions": self.solutions,
+                "genome": self.genome
+            }
+
+            db['ra'].insert_one(post)
+            
         except:
             log.error('Could not connect to MongoDB.')
             return
-
-        # Gather results
-        results = {
-            "attempts": int(self.solutions),
-            "queens": self.board.getQueens()
-        }
-
-        # Post
-        try:
-            ra_db.insert_one(results)
-            log.debug('Posted results to MongoDB.')
-        except:
-            log.error('Could not post results to MongoDB.')
+            
         return
