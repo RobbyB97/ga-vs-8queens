@@ -45,7 +45,6 @@ def geneticAlgorithm1():
         log.debug(genome['sum'])
 
     #GA loop
-    # TODO: The logic of what to do when goal state is achieved needs to be ironed out
     while not ga.solved:
         ga.nextGeneration()
         bestGenes = []
@@ -56,7 +55,7 @@ def geneticAlgorithm1():
         log.debug('Here are the best genes: {}'.format(bestGenes))
         ga.clear()
 
-        # TODO: Recombination
+        # Recombination
         splicedGenes = ga.splice(bestGenes)
         for chromosome in splicedGenes:
             ga.add(chromosome)
