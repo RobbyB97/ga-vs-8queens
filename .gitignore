@@ -6,3 +6,11 @@ venv/
 
 # Ignore logs
 *.log
+
+# Ignore MongoDB db
+server/database/db/diagnostic.data
+server/database/db/journal
+server/database/db/*.wt
+server/database/db/*.lock
+server/database/db/storage.bson
+server/database/db/WiredTiger*
