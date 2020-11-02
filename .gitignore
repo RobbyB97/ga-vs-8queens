@@ -14,3 +14,8 @@ server/database/db/*.wt
 server/database/db/*.lock
 server/database/db/storage.bson
 server/database/db/WiredTiger*
+
+# Ignore React bundle files
+*.map
+public/dist/bundle.js
+public/dist/bundle.css
