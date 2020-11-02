@@ -4,7 +4,7 @@
 
 const config = {
     http: {
-        port: process.env.PORT,
+        port: process.env.HTTP_PORT,
     },
     mongodb: {
         dbpath: './server/database/db',

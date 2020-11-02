@@ -7,7 +7,7 @@ const chalk = require('chalk');
 const mongoose = require('mongoose');
 
 const publicPath = path.join(__dirname, '../public');
-const mainRouter = require('./routers/app');    // TODO
+const clientRouter = require('./routers/client');    // TODO
 const config = require('./config/default');     // TODO
 
 const RenewSSLCert = require('./cron/renew-ssl-cert');
@@ -36,7 +36,7 @@ const ssl_cron = new RenewSSLCert;
 const app = express();
 app.use(express.static(publicPath));
 app.use(express.json());
-app.use(mainRouter);
+app.use(clientRouter);
 
 if (env === 'development') {
     http.createServer(app).listen(port, () => {        
