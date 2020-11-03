@@ -23,6 +23,12 @@ export class Home extends React.Component {
                     <div className="Home__headerContent">
                         
                     </div>
+
+                    <div className="Home__github">
+                        <a href="https://github.com/RobbyB97/ga-vs-8queens" target="_blank" rel="noopener">
+                            <img src="/dist/images/github-corner-right.svg" alt="GitHub"/>
+                        </a>
+                    </div>
                 </section>
 
                 <section className="Home__content">
