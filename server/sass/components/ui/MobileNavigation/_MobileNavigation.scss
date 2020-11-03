@@ -8,11 +8,15 @@
 .MobileNavigation__button {
     cursor: pointer;
     position: fixed;
-    top: 10px;
+    top: 3px;
     right: 12px;
     font-size: 2.5em;
     z-index: 8;
-    color: $offWhite;
+    color: $black;
+
+    &[data-navmenu_mobile=true] {
+        color: $offWhite;
+    }
 }
 
 

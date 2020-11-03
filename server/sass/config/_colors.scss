@@ -11,11 +11,11 @@ $offWhite: #e8e8e8;
 
 
 /* Theme Colors */
-$primaryColor: #6563ff;
+$primaryColor: #96d4b3;
 $primaryColor_light: saturate(lighten($primaryColor, 10%), 20%);
 $primaryColor_dark: desaturate(darken($primaryColor, 20%), 30%);
 
-$backgroundColor: $offWhite;
+$backgroundColor: #6f9e96;
 
 $headerColor: $primaryColor;
 $textColor: $black;

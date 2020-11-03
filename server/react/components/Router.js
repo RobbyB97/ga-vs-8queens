@@ -6,6 +6,11 @@ import Header from '../components/common/Header';
 import Footer from '../components/common/Footer';
 
 import Home from './pages/Home';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Watch from './pages/Watch';
 
 export class Router extends React.Component {
     constructor(props) {
@@ -16,7 +21,7 @@ export class Router extends React.Component {
         };
     };
 
-    componentWillMount() {
+    componentDidMount() {
         const $pageLoader = document.querySelector('.page-loader');
 
         // Disable loader
@@ -48,9 +53,39 @@ export class Router extends React.Component {
                     <Header />
 
                     <Switch>
-                        <Route 
+                        <Route
                             path="/"
                             component={Home}
+                            exact
+                        />
+
+                        <Route 
+                            path="/about"
+                            component={About}
+                            exact
+                        />
+
+                        <Route 
+                            path="/watch"
+                            component={Watch}
+                            exact
+                        />
+
+                        <Route
+                            path="/contact"
+                            component={Contact}
+                            exact
+                        />
+
+                        <Route 
+                            path="/login"
+                            component={Login}
+                            exact
+                        />
+
+                        <Route 
+                            path="/register"
+                            component={Register}
                             exact
                         />
                     </Switch>

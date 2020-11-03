@@ -66,8 +66,22 @@ router.get('/contact', (req, res) => {  // Send me an email
     }
 });
 
-router.get('/login', (req, res) => {    // Just for me to control the Python
-    try {                               // side through GUI
+router.get('/login', (req, res) => {    // Just for admin account(s) to
+    try {                               // control Python algorithms remotely
+        return res.sendFile(appRoute);
+    
+    } catch(e) {
+        res.send(500);
+        console.log(
+            chalk.red('An error occured: '),
+            '\n',
+            `${e}`
+        );
+    }
+});
+
+router.get('/register', (req, res) => {    // Just for admin account(s) to
+    try {                                  // control Python algorithms remotely
         return res.sendFile(appRoute);
     
     } catch(e) {
