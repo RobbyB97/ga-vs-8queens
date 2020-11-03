@@ -59,18 +59,24 @@ class RA:
 
     def storeResults(self):
         """ Stores results of RA in MongoDB """
-        
+        # Create goalState dict
+        goalState = {
+            "genome": self.genome,
+            "board": self.board,
+            "sum": 0
+        }
+
         # Connect to db
         try:
             client = MongoClient()
             db = client['ga_db']
             
-            post = {
+            results = {
                 "solutions": self.solutions,
-                "genome": self.genome
+                "genome": goalState
             }
 
-            db['ra'].insert_one(post)
+            db['ra'].insert_one(results)
             
         except:
             log.error('Could not connect to MongoDB.')

@@ -5,6 +5,7 @@
 import logging
 from random import randint
 from random import shuffle
+from pymongo import MongoClient
 
 from chessboard.board import Board
 
@@ -18,7 +19,7 @@ class GA:
         self.generation = 0    # Number of generations passed
         self.solved = False     # Was 8 Queens problems solved?
         self.population = []    # List of genome dictionaries.
-        self.goalState = None   # Genome object that has achieved goalState
+        self.goalState: dict = None   # Genome object that has achieved goalState
 
 
     def __len__(self):
@@ -93,6 +94,7 @@ class GA:
                 # If goal state achieved:
                 if genome['sum'] == 0:
                     log.debug('Goal state has been achieved')
+                    self.goalState = genome
                     self.solved()
 
             else:
@@ -252,7 +254,7 @@ class GA:
         # Connect to db
         try:
             client = MongoClient()
-            db = client.ga_db
+            db = client['ga_db']
         except:
             log.error('Could not connect to MongoDB.')
             return
@@ -260,7 +262,7 @@ class GA:
         # Gather results
         results = {
             "solutions": int(self.solutions),
-            "genome": self.goalState['genome'],
+            "genome": self.goalState,
             "generation": self.generation
         }
 
