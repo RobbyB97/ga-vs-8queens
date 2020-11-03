@@ -4,7 +4,7 @@
 ---
 
 # Mission Statement
->   This is the ultimate goal of the project. Written as though it is already completed, so you can have a clear undestanding of what I am working towards and why.
+>   This is the ultimate goal of the project. Written as though the project is already completed, so you can have a clear understanding of what I am working towards and why.
 
 This is a web application that hosts a Genetic Algorithm built in Python, that can be interfaced with through a MERN web application. Any non-technical person that is interested in the power of AI is able to get a visual and kinesthetic understanding of the inner workings of AI algorithms through an interactive React application without getting bogged down with the semantic noise of computer science jargon and theory. 
 
