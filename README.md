@@ -1,37 +1,17 @@
 # GA Vs. 8 Queens
-
-# Abstract
-The goal of this project is to create a [Genetic Algorithm *(GA)*](https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3?gi=32270bab8b8#:~:text=A%20genetic%20algorithm%20is%20a,offspring%20of%20the%20next%20generation.) that can solve the [8 Queens toy problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle#:~:text=The%20eight%20queens%20puzzle%20is,row%2C%20column%2C%20or%20diagonal.) as efficiently as possible.
-
-> Note: WIP. 
+>   This web application is a work in progress. I am building it [live on Twitch](https://www.twitch.tv/robbybergers), and will be releasing a more condensed, entertaining and educational version of the whole development process through a YouTube video series.
 
 ---
 
-# Design
-## 8 Queens Environment (./chessboard)
-The 8 queens environment which the algorithms are using consist of 3 different objects. A *board*, *square* and *queen*.
+# Mission Statement
+>   This is the ultimate goal of the project. Written as though it is already completed, so you can have a clear undestanding of what I am working towards and why.
 
--   ### Board
-    -   Data:
-        -   __board__: An 8x8 matrix, more specifically a list of lists contain square objects. This represents the physical chess board. To reference the square on the third row, second column, you would say...
-        ``` python
-            x = Board()
-            x.board[2][1]
-        ```
-    - Functions:
-        -   __place__(*row*, *col*): This runs the place function on the corresponding square of the board.
+This is a web application that hosts a Genetic Algorithm built in Python, that can be interfaced with through a MERN web application. Any non-technical person that is interested in the power of AI is able to get a visual and kinesthetic understanding of the inner workings of AI algorithms through an interactive React application without getting bogged down with the semantic noise of computer science jargon and theory. This topic can be incredibly complex, but in the end it makes sense and anybody with an interest is able to get a solid conceptual understanding without any programming knowledge or experience. However, for those aspiring computer scientists and software engineers with little real world experience, there is a more technical and in-the-weeds explanation of how the algorithms work with some great sources cited and every esoteric term linked to a more in-depth explanation. This project is open source and local-machine friendly, so that any tinkerer is free to fork the repository on GitHub, mess with the logic of the algorithms then watch how it performs, without worrying about any of the leg work of storing data, running a server or creating a front-end interface.
 
--   ### Square
-    -   Data:
-        -   __queen__: The queen object that may or may not be in any given square.
-        -   __sum__: The sum of queens that are able to capture a piece on this square.
-        -   __row__: Which row of the board the square is placed in.
-        -   __col__: Which column of the board the square is placed in.
-    -   Functions:
-        -   __place__: Add a queen to the square instance.
-        -   __canCapture__: increments the sum variable of the square instance.
+---
 
--   ### Queen
-    -   Data:
-        -   __row__: The row of the Square the Queen is occupying
-        -   __col__: The column of the Square the Queen is occupying
+# Documentation
+>   Since this project is still being created, the documentation is minimal and subject to change.
+
+## Getting Started
+This is a web application utilizes the MERN stack ([MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.JS](https://nodejs.org/)). Due to the amazing [npm](https://www.npmjs.com/), many of the technologies used will be installed automatically, however there are a few prerequisites you need installed on your machine before you can run this project.
