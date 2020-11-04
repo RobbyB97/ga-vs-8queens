@@ -5,7 +5,8 @@
     './config/fonts',
     './config/icons',
     './config/mediaQueries',
-    './config/html';
+    './config/html',
+    './config/vars';
 
 
 /* Mixins */
@@ -23,6 +24,13 @@
 @import
     './components/common/Header',
     './components/common/Footer';
+
+
+/* Chess components */
+@import
+    './components/chess/Board',
+    './components/chess/Square',
+    './components/chess/Queen';
 
 
 /* UI Components */

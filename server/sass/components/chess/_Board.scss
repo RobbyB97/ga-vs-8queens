@@ -1,0 +1,31 @@
+.Board {
+    margin: 0 auto;
+    padding: 0;
+    height: calc(var(--square) * 8);
+    width: calc(var(--square) * 8);
+    display: flex;
+    flex-direction: column;
+    border: 4px solid darken($blackSquare, 10%)
+}
+
+.Board__row {
+    display: flex;
+
+    &:nth-child(odd) {
+        .Square:nth-child(odd) {
+            background: $whiteSquare;
+        }
+        .Square:nth-child(even) {
+            background: $blackSquare;
+        }        
+    }
+
+    &:nth-child(even) {
+        .Square:nth-child(odd) {
+            background: $blackSquare;
+        }
+        .Square:nth-child(even) {
+            background: $whiteSquare;
+        }        
+    }
+}

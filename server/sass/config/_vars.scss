@@ -1,0 +1,11 @@
+:root {
+    --square: 25px;
+
+    @media #{$tablet_breakpoint} {
+        --square: 40px;
+    }
+    
+    @media #{$desktop_breakpoint} {
+        --square: 60px;
+    }
+}

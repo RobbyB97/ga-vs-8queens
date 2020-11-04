@@ -1,0 +1,28 @@
+.Queen { 
+    margin: 0;
+    padding: 0;
+}
+
+.Queen__queen {
+    img {
+        width: calc(var(--square) - 8px);
+        height: calc(var(--square) - 8px);
+        margin: 4px;
+    }
+
+    @media #{$tablet_breakpoint} {
+        img {
+            width: calc(var(--square) - 12px);
+            height: calc(var(--square) - 12px);
+            margin: 6px;
+        }    
+    }
+
+    @media #{$desktop_breakpoint} {
+        img {
+            width: calc(var(--square) - 16px);
+            height: calc(var(--square) - 16px);
+            margin: 8px;
+        }    
+    }
+}
