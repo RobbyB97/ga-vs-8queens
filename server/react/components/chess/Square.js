@@ -6,6 +6,11 @@ import Queen from './Queen';
 export class Square extends React.Component {
     constructor(props) {
         super(props);
+        /*  props:
+         *  row - int
+         *  col - int
+         * placeQueen -
+         */
         this.state = {
             queen: false,
         }
@@ -16,22 +21,41 @@ export class Square extends React.Component {
     }
 
     placeQueen() {
+        if (this.state.queen) {
+            return new Error("Can't place multiple queens on the same board")
+        }
+
+        this.props.placeQueen();
         this.setState({
-            ...state,
+            ...this.state,
             queen: true
         });
     }
 
     removeQueen() {
+        this.props.removeQueen();
         this.setState({
-            ...state,
+            ...this.state,
             queen: false
         });
     }
 
+    toggleQueen() {
+        if (this.state.queen) {
+            return this.removeQueen();
+        }
+        this.placeQueen();
+    }
+
     render() {
         return (
-            <div className="Square" data-row={this.props.row} data-col={this.props.col}>
+            <div 
+                className="Square"
+                onClick={this.toggleQueen.bind(this)}
+                key={this.props.key}
+                data-row={this.props.row} 
+                data-col={this.props.col}
+            >
                 {this.state.queen &&
                     <Queen />
                 }
