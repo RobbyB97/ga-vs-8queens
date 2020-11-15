@@ -13,26 +13,59 @@ log = logging.getLogger('GA_Project')
 
 
 class GA:
+    """
+    This is the first iteration of the Genetic Algorithm (GA). The 'genome' is the
+    coordinates of the Queens on the Board, with each Queen being one 'gene'.
+    The best 'chromosomes' in a 'population' are spliced together, meaning the
+    coordinates of some Queens on one solution are traded with another solution.
+    These new solutions are dumped back into the population. Rinse and repeat 
+    until the 8 Queens problem is solved.
+
+    ...
+
+    Attributes
+    ----------
+    solutions : int
+        The number of attempts the GA has made to solve the problem
+    generation : int
+        The number of 'generations' the GA has generated
+    isSolved : bool
+        Whether or not the GA has solved the 8 Queen's problem
+    population : list
+
+
+    Methods
+    -------
+    solve(self):
+        Creates a Board and places the Queens
+    solved(self):
+        This function is called when the goal state is achieved
+    storeResults(self):
+        Stores results of RA in MongoDB
+    """
 
     def __init__(self):
         self.solutions = 0      # Number of solutions attempted
         self.generation = 0    # Number of generations passed
-        self.solved = False     # Was 8 Queens problems solved?
+        self.isSolved = False     # Was 8 Queens problems solved?
         self.population = []    # List of genome dictionaries.
         self.goalState: dict = None   # Genome object that has achieved goalState
 
 
     def __len__(self):
-        return len(self.population)
-        
-    
-    def generate(self, genome = None):
-        """ 
-            @params:
-                genome = list of allele lists (Queen positions)
-
-            Generate a random genome
         """
+        The length of the GA = the length of the population
+        
+        Returns
+        -------
+        int
+            The length of the population
+        """
+        return len(self.population)
+
+   
+    def generate(self, genome = None):
+        """Generates a random genome"""
 
         # Generate genome dict from scratch
         if genome == None:
@@ -59,9 +92,7 @@ class GA:
 
 
     def add(self, genome):
-        """ 
-            Adds genome dictionary to population
-        """
+        """Adds genome dictionary to population"""
 
         self.population.append(genome)
         self.solutions += 1
@@ -71,8 +102,7 @@ class GA:
 
     def execute(self):
         """
-            Places queens on the boards of the population
-            based on their genomes
+        Places queens on the boards of the population based on their genomes
         """
 
         for genome in self.population:
@@ -104,9 +134,7 @@ class GA:
 
     def select(self):
         """
-            Returns a subset of the population based on whatever
-            selection algorithm
-            @return list of genome dictionaries
+        Returns a subset of the population based on whatever selection algorithm
         """
 
         # Sort population based on heuristic
@@ -128,10 +156,20 @@ class GA:
 
     def splice(self, population: list):
         """
-            Takes selected genes and splices them based on whatever
-            splicing algorithm. Returns list of genome dictionaries
+        Takes selected genes and splices them based on whatever splicing 
+        algorithm.
 
-            @return list of spliced genomes
+        ...
+
+        Parameters
+        ----------
+        population : list
+            The list of genomes that need to be spliced
+
+        Returns
+        -------
+        list 
+            A list of spliced genomes
         """
 
         splicedPopulation = []  # List of spliced genomes to be returned
@@ -191,23 +229,19 @@ class GA:
 
 
     def clear(self):
-        """
-            Clears the population
-        """
+        """Clears the population"""
         self.population = []
         return
 
 
     def nextGeneration(self):
-        """ Increments generation """
+        """Increments generation"""
         self.generation += 1
         return
 
 
     def getPopulationStats(self):
-        """
-            Logs the statistics of the current population of genomes.
-        """
+        """Logs the statistics of the current population of genomes"""
         fitness = []
         for chromosome in self.population:
             fitness.append(chromosome['sum'])
@@ -218,12 +252,12 @@ class GA:
 
     
     def getFittestStats(self):
-        """
-            Logs the statistics of the fittest half of the population
-        """
+        """Logs the statistics of the fittest half of the population"""
+        # Create lists to store the fittest of the population
         fittestPopulation = []
         fittestSums = []
         populationCopy = sorted(self.population, key = lambda i: i['sum'])
+
         # Gets the best half of the population
         for i in range(int(len(populationCopy) / 2)):
             fittestPopulation.append(populationCopy[i])
@@ -235,22 +269,18 @@ class GA:
         # FIXME: sum(fittestSums) used in the log.info below returns null
 
         log.info(fittestSums)
-        log.info('Total conflicts of fittest population:'.format(sum(fittestSums)))
+        log.info('Total conflicts of fittest population: {}'.format(sum(fittestSums)))
         return
 
 
     def solved(self):
-        """
-            This function is called when the goal state is achieved
-        """
-        
-        self.solved = True  # The last thing to run before return
+        """This function is called when the goal state is achieved"""
+        self.isSolved = True  # The last thing to run before return
         return
 
 
     def storeResults(self):
-        """ Stores results of GA in MongoDB """
-        
+        """Stores the results of the GA in MongoDB"""
         # Connect to db
         try:
             client = MongoClient()

@@ -13,18 +13,18 @@ log = logging.getLogger('GA_Project')
 
 class RA:
     """
-    This is the Random Agent object. This algorithm randomly places Queens on the 
-    Boards until it solves the 8 Queens problem. It is used as a control variable 
-    to compare the performance of the Genetic Algorithms to.
+    This is the Random Agent (RA) object. This algorithm randomly places Queens 
+    on the Boards until it solves the 8 Queens problem. It is used as a control 
+    variable to compare the performance of the Genetic Algorithms to.
 
     ...
 
     Attributes
     ----------
     solutions : int
-        The number of attempts the Random Agent has made to solve the problem
-    solved : bool
-        Whether or not the Random Agent has solved the 8 Queens problem
+        The number of attempts the (RA) has made to solve the problem
+    isSolved : bool
+        Whether or not the (RA) has solved the 8 Queens problem
     board : Board
         The virtual chess board
 
@@ -32,7 +32,7 @@ class RA:
     -------
     solve(self):
         Creates a Board and places the Queens
-    solved(self):
+    isSolved(self):
         This function is called when the goal state is achieved
     storeResults(self):
         Stores results of RA in MongoDB
@@ -40,7 +40,7 @@ class RA:
 
     def __init__(self):
         self.solutions = 0 
-        self.solved = False 
+        self.isSolved = False 
         self.board = None
         self.genome = []    
         return
@@ -74,7 +74,7 @@ class RA:
         """This function is called when the goal state is achieved"""
 
         self.storeResults()
-        self.solved = True  # The last thing to run before return
+        self.isSolved = True  # The last thing to run before return
         return
 
 
