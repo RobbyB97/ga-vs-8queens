@@ -18,21 +18,23 @@ This project is open source and local-machine friendly, so that any tinkerer is 
 >   Since this project is still being created, the documentation is minimal and subject to change.
 
 ## Getting Started
-
 This is a web application utilizes the MERN stack ([MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.JS](https://nodejs.org/)). Due to the amazing [npm](https://www.npmjs.com/), many of the technologies used will be installed automatically, however there are a few prerequisites you need installed on your machine before you can run this project.
 
 1.  **[Create a GitHub account](https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)**
     >   This project is hosted on GitHub. To create your own version, you will need a GitHub account.
 
-1.  **[Download GitHub Desktop](https://desktop.github.com/)**
-    >   GitHub Desktop is only available for Windows and MacOS. If you are running a Linux distro, you will need to refer to this [guide to using GitHub with Linux](https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu/). On Linux, you may also want to [connect your machine to your GitHub account with an SSH key](https://medium.com/@pacroy/connecting-to-github-with-ssh-f54248ccf30d), though this step is optional.
+1.  **Download git**
+
+    -   **Windows/Mac (GitHub Desktop)**:
+        [GitHub Desktop](https://desktop.github.com/) is an amazing _GUI_, or _Graphical User Interface_ that makes working with git a breeze. If you are new to git or programming in general, I highly recommend using this program.
+
+    -   **Linux (Command line)**:
+        Since GitHub Desktop is only available on Windows and Mac, Linux users are forced to interact with GitHub from the command line. Since this is a bit more complicated than GitHub Desktop, I highly recommend reading this [guide to using GitHub with Linux](https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu/) if you are not already familiar. Additionally, you may want to [connect your machine to your GitHub account with an SSH key](https://medium.com/@pacroy/connecting-to-github-with-ssh-f54248ccf30d), though this step is optional.
 
 1.  **[Download Visual Studio Code](https://code.visualstudio.com/download)**
 
 1.  **Download Node.js and npm**
-
     -   [Install Node.js on Windows/Mac](https://nodejs.org/en/)
-
     -   [Install Node.js on Linux](https://nodejs.org/en/download/package-manager/)
 
 1.  **Fork the repository**
@@ -48,12 +50,10 @@ This is a web application utilizes the MERN stack ([MongoDB](https://www.mongodb
     Now that you have forked the repository, it's now time to download your code.
 
     -   **Windows/Mac (GitHub Desktop)**:
-        
         Using GitHub Desktop, you can download the repository by clicking the green 'code' button, then selecting the option 'Open with GitHub Desktop'
         ![Cloning the repository with GitHub Desktop](./public/dist/images/screenshots/download_the_repository.png)
 
     -   **Linux (Command line)**:
-        
         You can download the repository from the command line using these commands. Replace _[your username]_ with your GitHub username. (If you did not set up SSH, you are going to want to copy/paste the HTTPS command.)
 
         -   **SSH**
@@ -70,33 +70,28 @@ This is a web application utilizes the MERN stack ([MongoDB](https://www.mongodb
     >   Now that the code is on your machine, it's time to start making your changes.
 
     -   **Windows/Mac (GitHub Desktop)**:
-        
         Once you download the repository with GitHub Desktop, GitHub Desktop should open up. In the top menu, click on _repository_, then _open in Visual Studio Code_.
         ![Open Visual Studio Code](./public/dist/images/screenshots/open_in_vscode.png)
 
     -   **Linux (Command line)**:
-        
         Once the command you entered is finished running, run this command in your terminal to open the repository in Visual Studio Code.
         ```bash
         code ./ga-vs-8queens
         ```
 
 1.  **Install dependencies**
-
     From the bottom of the Visual Studio Code window, you can pull up a terminal. Do this, and then enter the following command (this applies to Windows, Mac and Linux):
     ```bash
     npm install
     ```
 
 1.  **Run the project**
-
     This is the last step to run the project! Once npm install finishes running, enter the following command:
     ```bash
     npm run start:dev
     ```
 
 1.  **See it in action**
-
     Once you see 'Development server is up!', open up your favorite browser (I recommend Google Chrome for its robust [developer tools](https://developers.google.com/web/tools/chrome-devtools)) and enter 'localhost:3000' in the search bar. If you followed all the previous steps, you should see something resembling this:
     
     ![GA vs. 8 Queens homepage](./public/dist/images/screenshots/homepage.png)
