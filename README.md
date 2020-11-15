@@ -22,11 +22,11 @@ This project is open source and local-machine friendly, so that any tinkerer is 
 This is a web application utilizes the MERN stack ([MongoDB](https://www.mongodb.com/), [Express](https://expressjs.com/), [React](https://reactjs.org/), and [Node.JS](https://nodejs.org/)). Due to the amazing [npm](https://www.npmjs.com/), many of the technologies used will be installed automatically, however there are a few prerequisites you need installed on your machine before you can run this project.
 
 1.  **[Create a GitHub account](https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)**
->   This project is hosted on GitHub. To create your own version, you will need a GitHub account.
+    >   This project is hosted on GitHub. To create your own version, you will need a GitHub account.
 
 1.  **Fork the repository**
->   (This step requires you to be on [The Github repository page](https://github.com/RobbyB97/ga-vs-8queens))
+    >   (This step requires you to be on [The Github repository page](https://github.com/RobbyB97/ga-vs-8queens))
 
-Once you are on the repository's GitHub page and you are logged into your GitHub account, you need to _fork_ the repository. Click the fork button on the top right of the page to create your own personal copy of the codebase.
+    Once you are on the repository's GitHub page and you are logged into your GitHub account, you need to _fork_ the repository. Click the fork button on the top right of the page to create your own personal copy of the codebase.
 
-![Fork the repository](./public/dist/images/screenshots/fork_on_github.png)
+    ![Fork the repository](./public/dist/images/screenshots/fork_on_github.png)
