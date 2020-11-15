@@ -41,19 +41,19 @@ This is a web application utilizes the MERN stack ([MongoDB](https://www.mongodb
 
     Now that you have forked the repository, it's now time to download your code.
 
-    -   Windows/Mac (GitHub Desktop):
+    -   **Windows/Mac (GitHub Desktop)**:
         Using GitHub Desktop, you can download the repository by clicking the green 'code' button, then selecting the option 'Open with GitHub Desktop'
         ![Cloning the repository with GitHub Desktop](./public/dist/images/screenshots/download_the_repository.png)
 
-    -   Linux (Command line):
+    -   **Linux (Command line)**:
         You can download the repository from the command line using these commands. Replace _[your username]_ with your GitHub username. (If you did not set up SSH, you are going to want to copy/paste the HTTPS command.)
 
-        -   SSH
+        -   **SSH**
             ```bash
             git clone git@github.com:[your username]/ga-vs-8queens.git
             ```
 
-        -   HTTPS
+        -   **HTTPS**
             ```bash
             git clone https://github.com/[your username]/ga-vs-8queens.git
             ```
