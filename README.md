@@ -24,9 +24,36 @@ This is a web application utilizes the MERN stack ([MongoDB](https://www.mongodb
 1.  **[Create a GitHub account](https://github.com/join?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home)**
     >   This project is hosted on GitHub. To create your own version, you will need a GitHub account.
 
+1.  **[Download GitHub Desktop](https://desktop.github.com/)**
+    >   GitHub Desktop is only available for Windows and MacOS. If you are running a Linux distro, you will need to refer to this [guide to using GitHub with Linux](https://www.howtoforge.com/tutorial/install-git-and-github-on-ubuntu/). On Linux, you may also want to [connect your machine to your GitHub account with an SSH key](https://medium.com/@pacroy/connecting-to-github-with-ssh-f54248ccf30d), though this step is optional.
+
+1.  **[Download Visual Studio Code](https://code.visualstudio.com/download)**
+
 1.  **Fork the repository**
-    >   (This step requires you to be on [The Github repository page](https://github.com/RobbyB97/ga-vs-8queens))
+    >   (This step requires you to be on [The Github repository page](https://github.com/RobbyB97/ga-vs-8queens)).
 
     Once you are on the repository's GitHub page and you are logged into your GitHub account, you need to _fork_ the repository. Click the fork button on the top right of the page to create your own personal copy of the codebase.
 
     ![Fork the repository](./public/dist/images/screenshots/fork_on_github.png)
+
+1.  **Download the repository**
+    >   You can technically download the project straight from the original repo, but creating your own fork allows you to store your own changes online.
+
+    Now that you have forked the repository, it's now time to download your code.
+
+    -   Windows/Mac (GitHub Desktop):
+        Using GitHub Desktop, you can download the repository by clicking the green 'code' button, then selecting the option 'Open with GitHub Desktop'
+        ![Cloning the repository with GitHub Desktop](./public/dist/images/screenshots/download_the_repo.png)
+
+    -   Linux (Command line):
+        You can download the repository from the command line using these commands. Replace _[your username]_ with your GitHub username. (If you did not set up SSH, you are going to want to copy/paste the HTTPS command.)
+
+        -   SSH
+            ```bash
+            git clone git@github.com:[your username]/ga-vs-8queens.git
+            ```
+
+        -   HTTPS
+            ```bash
+            git clone https://github.com/[your username]/ga-vs-8queens.git
+            ```
