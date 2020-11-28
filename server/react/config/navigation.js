@@ -17,6 +17,10 @@ export default [
         text: "Watch",
         internal: true
     }, {
+        href: "/docs",
+        text: "Docs",
+        internal: true
+    }, {
         href: "https://github.com/RobbyB97/ga-vs-8queens",
         text: "View on GitHub",
         internal: false

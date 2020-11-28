@@ -24,7 +24,9 @@ router.get('/', (req, res) => {
     }
 });
 
-router.get('/about', (req, res) => {    // Explains the project 
+router.get('/about', (req, res) => {
+    /** Explains the project/ project abstract */
+
     try {
         return res.sendFile(appRoute);
     
@@ -38,21 +40,9 @@ router.get('/about', (req, res) => {    // Explains the project
     }
 });
 
-router.get('/watch', (req, res) => {    // Watch solutions get generated
-    try {                               // and get realtime statistics
-        return res.sendFile(appRoute);
-    
-    } catch(e) {
-        res.send(500);
-        console.log(
-            chalk.red('An error occured: '),
-            '\n',
-            `${e}`
-        );
-    }
-});
+router.get('/watch', (req, res) => {
+    /** Watch solutions get generated and get realtime statistics */
 
-router.get('/contact', (req, res) => {  // Send me an email
     try {
         return res.sendFile(appRoute);
     
@@ -66,8 +56,26 @@ router.get('/contact', (req, res) => {  // Send me an email
     }
 });
 
-router.get('/login', (req, res) => {    // Just for admin account(s) to
-    try {                               // control Python algorithms remotely
+router.get('/docs', (req, res) => {
+    /** Project documentation */
+
+    try {
+        return res.sendFile(appRoute);
+
+    } catch(e) {
+        res.send(500);
+        console.log(
+            chalk.red('An error occured: '),
+            '\n',
+            `${e}`
+        );
+    }
+});
+
+router.get('/contact', (req, res) => {
+    /** Send the original developer an email */
+
+    try {
         return res.sendFile(appRoute);
     
     } catch(e) {
@@ -80,8 +88,26 @@ router.get('/login', (req, res) => {    // Just for admin account(s) to
     }
 });
 
-router.get('/register', (req, res) => {    // Just for admin account(s) to
-    try {                                  // control Python algorithms remotely
+router.get('/login', (req, res) => {
+    /** Login for admin accounts to control Python algorithms remotely */
+
+    try {
+        return res.sendFile(appRoute);
+    
+    } catch(e) {
+        res.send(500);
+        console.log(
+            chalk.red('An error occured: '),
+            '\n',
+            `${e}`
+        );
+    }
+});
+
+router.get('/register', (req, res) => {
+    /** Register for admin accounts to control Python algorithms remotely */
+
+    try {
         return res.sendFile(appRoute);
     
     } catch(e) {

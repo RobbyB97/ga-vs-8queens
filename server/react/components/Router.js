@@ -11,6 +11,7 @@ import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Watch from './pages/Watch';
+import Docs from './pages/Docs';
 
 export class Router extends React.Component {
     constructor(props) {
@@ -68,6 +69,12 @@ export class Router extends React.Component {
                         <Route 
                             path="/watch"
                             component={Watch}
+                            exact
+                        />
+
+                        <Route 
+                            path="/docs"
+                            component={Docs}
                             exact
                         />
 
