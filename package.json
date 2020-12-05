@@ -8,7 +8,7 @@
     "start:prod": "env-cmd -e production node server/index.js",
     "start:dev": "concurrently --kill-others \"npm run build:dev_Nodemon\" \"npm run build:dev_Webpack\"",
     "build:dev": "webpack",
-    "build:dev_Nodemon": "env-cmd -e development nodemon server/index.js -e js,css,html,hbs",
+    "build:dev_Nodemon": "env-cmd -e development nodemon server/index.js -e js,css,html,hbs,md",
     "build:dev_Webpack": "webpack --watch",
     "build:prod": "webpack -p --env production"
   },
@@ -53,6 +53,7 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "marked": "^1.2.5",
     "nodemon": "^2.0.6",
     "webpack-cli": "^4.1.0"
   }
