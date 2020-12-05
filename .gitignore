@@ -19,3 +19,6 @@ server/database/db/WiredTiger*
 *.map
 public/dist/bundle.js
 public/dist/bundle.css
+
+# Ignore automatically generated HTML documentation files
+public/documentation/*.html
