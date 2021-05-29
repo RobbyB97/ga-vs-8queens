@@ -1,24 +1,33 @@
-node_modules/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-#Ignore python build files
-venv/
-*.pyc
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Ignore logs
-*.log
+# testing
+/coverage
 
-# Ignore MongoDB db
-server/database/db/diagnostic.data
-server/database/db/journal
-server/database/db/*.wt
-server/database/db/*.lock
-server/database/db/storage.bson
-server/database/db/WiredTiger*
+# production
+/build
 
-# Ignore React bundle files
-*.map
-public/dist/bundle.js
-public/dist/bundle.css
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Ignore automatically generated HTML documentation files
-public/documentation/*.html
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# built js
+*.js
+
+# bundle files
+public/bundle.*
+
+# python setup
+venv
+__pycache__
