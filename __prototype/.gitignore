@@ -1,0 +1,24 @@
+node_modules/
+
+#Ignore python build files
+venv/
+*.pyc
+
+# Ignore logs
+*.log
+
+# Ignore MongoDB db
+server/database/db/diagnostic.data
+server/database/db/journal
+server/database/db/*.wt
+server/database/db/*.lock
+server/database/db/storage.bson
+server/database/db/WiredTiger*
+
+# Ignore React bundle files
+*.map
+public/dist/bundle.js
+public/dist/bundle.css
+
+# Ignore automatically generated HTML documentation files
+public/documentation/*.html

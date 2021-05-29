@@ -1,0 +1,39 @@
+.Square {
+    margin: 0;
+    padding: 0;
+    width: var(--square);
+    height: var(--square);
+    position: relative;
+}
+
+.Square__wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    &[data-path="0"] {
+        background-color: rgba(255, 0, 0, 0.0);
+    }
+
+    &[data-path="1"] {
+        background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    &[data-path="2"] {
+        background-color: rgba(255, 0, 0, 0.2);
+    }
+
+    &[data-path="3"] {
+        background-color: rgba(255, 0, 0, 0.3);
+    }
+
+    &[data-path="4"] {
+        background-color: rgba(255, 0, 0, 0.4);
+    }
+
+    &[data-path="5"] {
+        background-color: rgba(255, 0, 0, 0.5);
+    }
+}

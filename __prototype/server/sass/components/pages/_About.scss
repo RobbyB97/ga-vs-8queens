@@ -1,0 +1,8 @@
+#About {
+    @include page;
+}
+
+
+.About__content {
+    @include innerContent;
+}
